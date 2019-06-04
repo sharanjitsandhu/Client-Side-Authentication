@@ -1,11 +1,11 @@
-import React, { Component } from "react";
-import axios from "axios";
+import React, { Component } from 'react';
+import axios from 'axios';
 
-class Login extends Component {
+class SignUp extends Component {
   state = {
-    username: "",
-    password: "",
-    department: ""
+    username: '',
+    password: '',
+    department: ''
   };
 
   handleChange = e => {
@@ -17,18 +17,18 @@ class Login extends Component {
     e.preventDefault();
 
     axios
-      .post("http://localhost:5000/api/register", this.state)
+      .post('http://localhost:5000/api/register', this.state)
       .then(res => {
-        localStorage.setItem("jwt", res.data.token);
-        this.props.history.push("/login");
+        localStorage.setItem('jwt', res.data.token);
+        this.props.history.push('/login');
       })
       .catch(err => {
-        console.log("Error", err);
+        console.log('Error', err);
       });
     this.setState({
-      username: "",
-      password: "",
-      department: ""
+      username: '',
+      password: '',
+      department: ''
     });
   };
 
@@ -80,4 +80,4 @@ class Login extends Component {
   }
 }
 
-export default Login;
+export default SignUp;
